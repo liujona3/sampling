@@ -10,10 +10,34 @@ Modify the number of repetitions in the simulation to 100 (from the original 100
 
 Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
 
-# Author: YOUR NAME
+# Author: Jonathan Liu
 
 ```
-Please write your explanation here...
+Stages where sampling occurs:
+    i) random sample of people attending events are infected using the code:
+        infected_indices = np.random.choice(ppl.index, size=int(len(ppl) * ATTACK_RATE), replace=False)
+        ppl.loc[infected_indices, 'infected'] = True
+        - Attack rate was set to 10%, with the  1000 people being the sampling frame, and distribution is uniform random sampling without replacement, the sample size would be 100 people infected.
+        - It aligns with the infection rate outlined in the blog post where each person has a 10% chance of being infected.
+
+    ii) of the people infected, a random subset are successfully traced using the code:
+        ppl.loc[ppl['infected'], 'traced'] = np.random.rand(sum(ppl['infected'])) < TRACE_SUCCESS
+        - Success rate for tracing was set to 20%, with the people infected being the sampling frame, and the distribution is Bernouli, where the infected is traced or isn't traced, the sample size would be 20 people who are infected and traced
+        - It aligns with the tracing rates outlined in the blog post, where each infection has a 20% chance of being traced to a source event.
+
+    iii) If two infections are independently traced to the same source event (conditional), secondary contact traced using the code:
+        event_trace_counts = ppl[ppl['traced'] == True]['event'].value_counts()
+        events_traced = event_trace_counts[event_trace_counts >= SECONDARY_TRACE_THRESHOLD].index
+        ppl.loc[ppl['event'].isin(events_traced) & ppl['infected'], 'traced'] = True
+        - Once an event reaches the threshold (2), every person from that event is sampled into the secondary traced group, with the sampling frame being everyone infected, the distribution being conditional, the same size would be all infected individuals at the venets where traced cases were greater than or equal to 2.
+        - This is the core source of bias mentioned by the author, where weddings can trigger the threshold and be over represented in tracing data. 
+
+
+The original script does seem to produce the graphs from the original blog post.
+
+When the repititiona are changed from 1000 to 100, the outputted graphs the overall trend is still present BUT the results vary more and the graphs are more 'skewed' and reproducibility is reduced as the results are more variable and tend change more compared to 1000 repititions. 
+
+To make the code reproducible, I added a line of code to set a random seed (44) before any random functions. This sets the randomness to a fixed starting point so that the same series of 'random' events occur. 
 
 ```
 
