@@ -40,30 +40,36 @@ For the **Canadian General Social Survey on Giving, Volunteering, and Participat
 
 ## Part A - Survey Design: 
 
-The number of your chosen topic: `#`
+The number of your chosen topic: `3`
 
 Describe the purpose of your survey:
 ```
-write your answer here...
-```
+The purpose of this survey is to investigate if age influences music tastes, specifically how 'popular music' might be perceived across age groups. We aim to compare musical preferences across different age groups in addition to tracking how an individual's music tastes may have changed over time. ```
 
 Describe your target population, sampling frame, sampling units, and observational units:
 ```
-write your answer here...
+Our target population are adults (18+) in Toronto.
+
+The sampling frame will surveys around the City of Toronto and online in Toronto-related forums. 
+
+The sampling units will be individuals that respond to the survey.
+
+The observational units will also be the indivudals within the survey population. 
+
+Sampling strategy would be to take a non-probability convenience sampling approach. We aim to include participants of various age ranges and stratify them into age groups (18-24, 25-30, 31-35, 36-40, etc.) for comparisons across diffreent age groups. People under the age of 18 will be excluded  Targeted surveys will be posted at various diverse locations across the city such as retirement communites, commercial buildings(work places, malls, etc.), and school related grounds and campuses. We will also aim to recruit through Toronto-related online forums to reach a more diverse set of responses. We will try to include enough participants for each stratum/age group as well. 
 ```
 
 Your 5-10 question survey:
 ```
-1. write your question here...
-2. write your question here...
-3. write your question here...
-4. write your question here...
-5. write your question here...
-6. write your question here... (optional)
-7. write your question here... (optional)
-8. write your question here... (optional)
-9. write your question here... (optional)
-10. write your question here... (optional)
+1. What is your age?
+2. What is your gender?
+3. Where do you currently live?
+4. What are your top 3 favourite music genres at the moment? (With rankings 1-3, pop, hiphop, rick, country, jazz, rnb, classical, other [please specify])
+5. How would you describe your opinion on current pop music? (Likert-type scale, 1-5, 1 - Very negative and 5 - Very positive)
+6. Has your music taste changed over time in terms of genre?
+7. What were your favorite genres of music during different times over your life? What are your top 3 favourite music genres at the moment? (For each age group that is applicable for the participant: with rankings 1-3, pop, hiphop, rick, country, jazz, rnb, classical, other [please specify])
+8. Do you think your current age infleunces your taste in music?
+9. Do you believe people in general tend to be less open to new music as they age? (Likert-type scale, 1-5, 1 - Strongly disagree and 5 - Strongly agree)
 ```
 
 ## Part B - Survey Evaluation:
@@ -71,7 +77,47 @@ Your 5-10 question survey:
 Identify and describe survey features:
 
 ```
-write your answer here
+1. Sample type
+    - probability sampling with stratified design (province CMA level); houses first grouped by telephone numbers, then individuals randomly selected from the house 
+    - rejective sampling was also implemented
+2. Sample size
+    - 50,000 units used
+    - 40,000 invitations to electronic questionnaires sent
+    - expected 24,000 completed questionnaires
+3. Target population
+    - All persons 15 years of age and older living in the ten provinces of Canada, excluding full-time residents of institutions
+4. Sampling frame
+    - A frame consisting of landline and cellular telephone numbers from the Census and administrative sources, including Stats Canada's dwelling frame to enhance coverage of households with telephone access
+5. Survey mode(s)
+    - Electronic questionnaires
+6. Timeline
+    - Data collection was from 2018-09-04 to 2018-12-28
+7. Response rate
+    - 40,000 sent, expected 24,000, so expected response rate was 60% but ended up being 41.9%
+8. Weights
+    - WGHT_PER - basic weighting factor for analysis at the person level
+    - adjusted for the 'rejectin' of a proportion of respondents that are not volunteers by multiplying the person weight by a factor for  respondents that are not 'rejected' and are not volunteers  
+9. Data processing
+    - Used SSPE set of generalized processing steps for easy processing of the survey with high quality outputs
+10. Cleaning, imputation, etc
+    - Edits performed automatically and manually at various stages of processing at both macro and micro levels, which include family(relationships to ensure integrity), consistency(series of checks), and flow edits(ensures correct path adn fix offpath situations).
+    - Imputations were made using donor records which were selected using a score function
+        - If donor imputation could not be used, mean imputation was used via pool of donors
+        - Carried out in 9 steps
+11. Sources of error
+    - Error detection was done through edits programmed into the CATI system
+    - Potential sources of errors:
+        - sampling error from just a simple sample
+        - data processing errors
+        - coverage errors, may under represent or over represent
+        - non sampling errors
+12. Limitations, known biases, etc
+    - Non-response bias: perhaps there is a certain demographic that tends to respond to these questionnaires and may be over represented.
+    - Exclusion of territories and institutionalized populations limits generalizability to these populations
+13. Link to documentation and any additional sources used
+    - https://www150.statcan.gc.ca/n1/pub/45-25-0001/index-eng.htm
+    - https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=796234
+
 ```
 
 ## Rubric
